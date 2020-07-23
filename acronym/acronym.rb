@@ -3,10 +3,8 @@
 module Acronym
   def self.abbreviate(phrase)
     phrase
-      .gsub(/-/, ' ')
-      .split
-      .map(&:chr)
+      .split(/[\W]+/)
+      .map { |word| word[0].capitalize }
       .join
-      .upcase
   end
 end
